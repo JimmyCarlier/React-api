@@ -1,0 +1,55 @@
+fetch api
+
+on créée le composant qui va fetch l'API;
+
+dans le composant, on cré la constante qui va être appelé ->
+
+ ----- const ceciEstUnTest = () =>{}
+
+ à l'intérieur nous allons fetch l'api dans une const
+
+------- const testApi = async () =>{}
+
+on fetch l'api à l'intérieur
+
+ ------ const resultFetch = await fetch("https://cesuntest")
+
+ on stock l'api en json 
+
+ ------- const resultJson = await resultFetch.json()
+
+ on return l'api en dehors de la fonction async
+
+ ------- testApi()
+
+ Pour afficher les titres dans une boucle nous allons devoir créee un useState 
+
+ ------- const [test, setTest] = useState([])
+
+ on oublie pas l'import de useState 
+
+ --------  import { useState } from "react";
+
+ on créee une condition à l'exterieur de la fonction async qui empechera l'appelle de l'api en boucle
+
+
+ ------- if(test.length === 0){
+    testApi()
+ } // Si test est vide alors on appelle l'api
+
+
+dans la fonction async on initialise l'état de changement par le set en lui demandant de prendre ces infos :
+
+------ setTest(resultJson.nomdutableau)
+
+ici on estime que dans l'objet il y a un tableau qui stock les informations que l'on à besoin
+
+en suite dans le return, nous allons créee une boucle qui va récupérer les info, ici test (qui est l'état de  visibilité du useState) va nous permettre d'afficher ces info 
+
+------- return (
+    <>
+      {test.map((premierTest) => (
+        <h1>{premierTest.titre}</h1>
+      ))}
+    </>
+  );

@@ -1,0 +1,90 @@
+ul {
+  display: flex;
+  justify-content: space-around;
+}
+li {
+  list-style: none;
+}
+
+.allMeal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  text-align: center;
+  gap: 20px;
+}
+
+.formMessage {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.columnForm {
+  display: flex;
+  flex-direction: column;
+}
+
+/*  ----------------------------------------  */
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin: 0 auto;
+  gap: 20px;
+  align-items: center;
+}
+
+form .subb {
+  width: 100px;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px;
+  border: none;
+  padding: 10px;
+}
+.containerCard {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: auto;
+  justify-content: center; /* Centrer les cards horizontalement */
+  gap: 20px; /* Ajout d'un espacement de 20 pixels entre les cards */
+  margin-top: 50px;
+}
+
+form .inputSearch {
+  padding: 10px;
+  width: 100%;
+}
+.mealImg {
+  width: 300px;
+}
+.mealCard {
+  width: 300px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: relative;
+}
+
+.mealCard h1 {
+  background-color: #98fb98;
+  width: 50%;
+  margin: 10% auto;
+  border-radius: 15px;
+  position: absolute;
+  top: -5%;
+  left: 25%;
+  padding: 5px;
+}
+
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
