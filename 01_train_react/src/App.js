@@ -5,15 +5,17 @@ import Header from "./Header";
 import MealsListApi from "./MealsListApi";
 import SearchMeal from "./SearchMeal";
 import SingleMeal from "./SingleMeal";
+import ShowAllCategory from "./ShowAllCategories";
 
 function App() {
   return (
     <>
       <Header />
-      <SearchMeal />
-      {/* <MealsListApi />
+      <ShowAllCategory />
+      {/* <SearchMeal/>
+      <MealsListApi />
       <ContactForm />
-      <SingleMeal /> */}
+      <SingleMeal />  */}
       <Footer />
     </>
   );
