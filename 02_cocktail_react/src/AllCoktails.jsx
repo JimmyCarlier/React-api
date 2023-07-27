@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SingleCoktail from "./SingleCoktail";
 const AllCoktails = () => {
   const [showAllCoktail, setShowAllCoktail] = useState();
   const [loading, setLoading] = useState(true);
@@ -46,8 +47,7 @@ const AllCoktails = () => {
       ) : (
         showAllCoktail.map((drink) => (
           <>
-            <h3>{drink.strDrink}</h3>
-            <img src={drink.strDrinkThumb} alt="" className="cocktailImg" />
+            <SingleCoktail drink={drink} />
           </>
         ))
       )}
