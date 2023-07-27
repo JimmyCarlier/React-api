@@ -6,6 +6,7 @@ import MealsListApi from "./MealsListApi";
 import SearchMeal from "./SearchMeal";
 import SingleMeal from "./SingleMeal";
 import ShowAllCategory from "./ShowAllCategories";
+import AllCategories from "./AllCategories";
 
 function App() {
   return (
