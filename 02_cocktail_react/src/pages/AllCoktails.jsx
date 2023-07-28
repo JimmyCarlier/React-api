@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import SingleCoktail from "./SingleCoktail";
+import SingleCoktail from "../component/SingleCoktail";
+import Header from "../component/Header";
 const AllCoktails = () => {
   const [showAllCoktail, setShowAllCoktail] = useState();
   const [loading, setLoading] = useState(true);
-  const [random, setRandom] = useState([]);
 
   const fetchCoktailApi = async () => {
     try {
@@ -28,33 +28,23 @@ const AllCoktails = () => {
     } catch {}
   };
 
-  const RandomCocktail = async () => {
-    const randomFetch = await fetch(
-      "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-    );
-    const randomJson = await randomFetch.json();
-    setRandom(randomJson.drinks[0]);
-  };
-
   useEffect(() => {
     fetchCoktailApi();
   }, []);
 
   return (
     <>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        showAllCoktail.map((drink) => (
-          <>
-            <SingleCoktail drink={drink} />
-          </>
-        ))
-      )}
-      <div className="randomCock">
-        <button onClick={RandomCocktail}>Random Coktail</button>
-        <h3>{random.strDrink}</h3>
-        <img src={random.strDrinkThumb} alt="" className="cocktailImg" />
+      <Header />
+      <div className="coktails-section">
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          showAllCoktail.map((drink) => (
+            <>
+              <SingleCoktail drink={drink} />
+            </>
+          ))
+        )}
       </div>
     </>
   );

@@ -16,16 +16,18 @@ const SingleCoktail = ({ drink }) => {
   };
 
   return (
-    <>
-      <h3>{drink.strDrink}</h3>
+    <article className="cocktail-card">
       <img src={drink.strDrinkThumb} alt="" className="cocktailImg" />
-      <button onClick={showIngredient}>Show Ingredient</button>
+      <h3>{drink.strDrink}</h3>
+      <button onClick={showIngredient} className="btn ingr-btn">
+        Show Ingredient
+      </button>
       {show.length !== 0 &&
         itShow &&
         show.map((ingredient) => {
           return <p>{ingredient}</p>;
         })}
-    </>
+    </article>
   );
 };
 export default SingleCoktail;

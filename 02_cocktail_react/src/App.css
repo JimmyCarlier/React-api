@@ -1,40 +1,10 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Arial";
+  color: #78111f;
 }
 
 .cocktailImg {
@@ -43,4 +13,132 @@
 
 .randomCock {
   margin-top: 75px;
+}
+nav {
+  background-color: #ffac84;
+}
+li {
+  list-style: none;
+}
+
+a {
+  color: #78111f;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+.flex li:not(:last-child):hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.home-section {
+  align-items: center;
+  height: 80vh;
+  justify-content: center;
+  color: #78111f;
+}
+
+.coktails-section {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  padding: 5vh;
+}
+
+.cocktail-card {
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+  position: relative;
+}
+
+.cocktail-card img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.cocktail-card h3 {
+  position: absolute;
+  top: 26px;
+  padding: 10px 0;
+  border-radius: 20px 20px 0 0;
+  font-weight: 900;
+  font-size: 1.5rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  background: linear-gradient(#ffad84, #ffad8400);
+}
+
+.btn {
+  border: 0.5px solid #78111f;
+  position: absolute;
+  left: 50%;
+  top: 95%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  padding: 7px 14px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.ingredient {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.input-search {
+  position: relative;
+}
+
+.btn-search {
+  position: absolute;
+  top: 15%;
+  left: 85%;
+  border-radius: 80%;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.bar-search {
+  padding: 10px;
+  width: 200px;
+  border-radius: 20px;
+  border: none !important;
+}
+
+.bar-search {
+  border: none;
+  outline: none;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  font-size: 10rem;
+}
+
+.msg-error {
+  transform: scale(3);
+}
+
+.tchoupi {
+  width: 600px;
 }
