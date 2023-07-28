@@ -5,6 +5,7 @@
   list-style-type: none;
   font-family: "Arial";
   color: #78111f;
+  overflow: hidden;
 }
 
 .cocktailImg {
@@ -141,4 +142,55 @@ a {
 
 .tchoupi {
   width: 600px;
+}
+
+.randomCock {
+  text-align: center;
+}
+
+.btn-random {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ffad84;
+  cursor: pointer;
+  transition: ease-in-out 0.4s;
+}
+
+.btn-random:hover {
+  transform: scale(1.5) rotateX(360deg);
+}
+
+.tchoupi {
+  width: 200px;
+  height: auto;
+  position: absolute;
+  top: 75%;
+  left: -50%;
+  animation: flySpinneur 4s ease-out infinite;
+}
+
+@keyframes flySpinneur {
+  0% {
+    transform: translateX(0vw);
+  }
+
+  100% {
+    transform: translateX(200vw);
+  }
+}
+.singleImg {
+  height: 200px;
+}
+.singleCocktail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.Laurian {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 20px;
 }

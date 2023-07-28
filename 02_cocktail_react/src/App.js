@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SearchCoktailPage from "./pages/SearchCoktailPage";
 import DetailsCocktail from "./pages/DetailsCocktail";
+import CategoryDrink from "./pages/CategoryDrink";
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
           <Route path="/allCoktails" element={<AllCoktails />} />
           <Route path="/RandomCocktailPage" element={<RandomCocktailPage />} />
           <Route path="/searchCocktail" element={<SearchCoktailPage />}></Route>
+          <Route
+            path="/allcocktails/:categoryName"
+            element={<CategoryDrink />}
+          ></Route>
           <Route path="/RandomCocktailPage/:id" element={<DetailsCocktail />} />
         </Routes>
       </BrowserRouter>

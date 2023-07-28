@@ -16,11 +16,12 @@ const RandomCocktailPage = () => {
     <>
       <Header />
       <div className="randomCock">
-        <button onClick={RandomCocktail}>Random Coktail</button>
-        <h3>{random.strDrink}</h3>
-        <img src={random.strDrinkThumb} alt="" className="cocktailImg" />
+        <button onClick={RandomCocktail} className="btn-random">
+          Random Coktail
+        </button>
         <Link to={`/RandomCocktailPage/${random.idDrink}`}>
-          <button>Details</button>
+          <h3>{random.strDrink}</h3>
+          <img src={random.strDrinkThumb} alt="" className="cocktailImg" />
         </Link>
       </div>
     </>

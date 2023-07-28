@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import SingleCoktail from "../component/SingleCoktail";
 import Header from "../component/Header";
+import { Link } from "react-router-dom";
+
 const AllCoktails = () => {
   const [showAllCoktail, setShowAllCoktail] = useState();
   const [loading, setLoading] = useState(true);
@@ -42,6 +44,7 @@ const AllCoktails = () => {
           showAllCoktail.map((drink) => (
             <>
               <SingleCoktail drink={drink} />
+              <Link to={`/allcocktails/${drink.strCategory}`}>Categorie</Link>
             </>
           ))
         )}
