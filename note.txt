@@ -1,55 +1,134 @@
-fetch api
+Fetch API :
 
-on créée le composant qui va fetch l'API;
+Pour commencer, nous créons un composant qui va utiliser l'API Fetch.
 
-dans le composant, on cré la constante qui va être appelé ->
-
- ----- const ceciEstUnTest = () =>{}
-
- à l'intérieur nous allons fetch l'api dans une const
-
-------- const testApi = async () =>{}
-
-on fetch l'api à l'intérieur
-
- ------ const resultFetch = await fetch("https://cesuntest")
-
- on stock l'api en json 
-
- ------- const resultJson = await resultFetch.json()
-
- on return l'api en dehors de la fonction async
-
- ------- testApi()
-
- Pour afficher les titres dans une boucle nous allons devoir créee un useState 
-
- ------- const [test, setTest] = useState([])
-
- on oublie pas l'import de useState 
-
- --------  import { useState } from "react";
-
- on créee une condition à l'exterieur de la fonction async qui empechera l'appelle de l'api en boucle
+À l'intérieur de ce composant, nous déclarons une constante qui sera appelée "ceciEstUnTest", et nous définissons une fonction fléchée à l'intérieur :
 
 
- ------- if(test.length === 0){
-    testApi()
- } // Si test est vide alors on appelle l'api
+const ceciEstUnTest = () => {
+  // À l'intérieur de cette fonction, nous allons utiliser Fetch pour appeler l'API.
+};
 
 
-dans la fonction async on initialise l'état de changement par le set en lui demandant de prendre ces infos :
+Dans cette fonction, nous créons une autre constante nommée "testApi" qui sera asynchrone :
 
------- setTest(resultJson.nomdutableau)
 
-ici on estime que dans l'objet il y a un tableau qui stock les informations que l'on à besoin
+const testApi = async () => {
+  // Nous effectuons l'appel Fetch à l'API ici.
+  const resultFetch = await fetch("https://cesuntest");
+  // Nous stockons les données de l'API au format JSON.
+  const resultJson = await resultFetch.json();
+  // Nous mettons à jour le state en utilisant la fonction "setTest".
+  setTest(resultJson.nomdutableau);
+};
 
-en suite dans le return, nous allons créee une boucle qui va récupérer les info, ici test (qui est l'état de  visibilité du useState) va nous permettre d'afficher ces info 
 
-------- return (
-    <>
-      {test.map((premierTest) => (
-        <h1>{premierTest.titre}</h1>
-      ))}
-    </>
-  );
+En dehors de la fonction asynchrone, nous créons une condition pour éviter d'appeler l'API en boucle si le tableau "test" est vide :
+
+
+if (test.length === 0) {
+  testApi();
+}
+
+
+Dans le retour du composant, nous utilisons une boucle pour afficher les titres contenus dans le tableau "test" (qui est le state géré par le hook useState) :
+
+
+return (
+  <>
+    {test.map((premierTest) => (
+      <h1 key={premierTest.id}>{premierTest.titre}</h1>
+    ))}
+  </>
+);
+
+
+Pour utiliser React Router, nous devons installer la bibliothèque :
+
+
+npm install react-router
+
+
+Ensuite, nous importons les éléments nécessaires dans le fichier où nous voulons définir nos routes :
+
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+
+Dans le fichier "app.js" (ou autre fichier principal), nous pouvons définir les routes à l'aide de React Router :
+
+
+<BrowserRouter>
+  <Routes>
+    <Route path="/" element={<TestPage />} />
+    {/* D'autres routes peuvent être définies ici */}
+  </Routes>
+</BrowserRouter>
+
+
+Pour créer un composant "Header" qui permettra la navigation entre les liens, nous pouvons utiliser cette syntaxe :
+
+
+<nav>
+  <ul>
+    <li>
+      <Link to="/">Home</Link>
+    </li>
+    <li>
+      <Link to="/allCoktails">Show Cocktails</Link>
+    </li>
+    <li>
+      <Link to="/randomCocktailPage">Random me !</Link>
+    </li>
+  </ul>
+</nav>
+
+Pages et Barre de recherche :
+
+Dans la page contenant le formulaire d'entrée de recherche :
+
+const navigate = useNavigate();
+const search = event.target.search.value;
+navigate(`/searchCocktail?search=${search}`);
+
+
+Dans la page qui affiche les résultats de la recherche :
+
+
+const [searchParams] = useSearchParams();
+const search = searchParams.get("search");
+
+useEffect(() => {
+  fetchSearchApi();
+}, [search]);
+
+
+Pour récupérer l'ID :
+
+Nous créons d'abord une route pour la page qui affichera les détails d'un objet spécifique en fonction de son ID :
+
+
+<Route path="/RandomCocktailPage/:id" element={<DetailsCocktail />} />
+
+
+Ensuite, dans la page où nous voulons récupérer l'ID, nous importons le hook "useParams" de react-router-dom :
+
+
+import { useParams } from "react-router-dom";
+
+
+En utilisant "useParams", nous pouvons récupérer l'ID de l'URL :
+
+
+const { id } = useParams();
+
+
+Enfin, nous pouvons utiliser cet ID pour effectuer une requête Fetch spécifique :
+
+
+const resultFetch = await fetch(
+  `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+);
+
+
+Assurez-vous que la variable "id" contient bien l'ID correct provenant de l'URL pour récupérer les détails de l'objet souhaité.

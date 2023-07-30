@@ -44,7 +44,9 @@ const AllCoktails = () => {
           showAllCoktail.map((drink) => (
             <>
               <SingleCoktail drink={drink} />
-              <Link to={`/allcocktails/${drink.strCategory}`}>Categorie</Link>
+              <Link to={`/categoryCocktails/${drink.strCategory}`}>
+                Categorie
+              </Link>
             </>
           ))
         )}

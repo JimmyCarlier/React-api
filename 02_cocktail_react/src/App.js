@@ -17,10 +17,10 @@ function App() {
           <Route path="/RandomCocktailPage" element={<RandomCocktailPage />} />
           <Route path="/searchCocktail" element={<SearchCoktailPage />}></Route>
           <Route
-            path="/allcocktails/:categoryName"
+            path="/categoryCocktails/:categoryName"
             element={<CategoryDrink />}
           ></Route>
-          <Route path="/RandomCocktailPage/:id" element={<DetailsCocktail />} />
+          <Route path="/DetailCocktail/:id" element={<DetailsCocktail />} />
         </Routes>
       </BrowserRouter>
     </>
