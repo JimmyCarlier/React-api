@@ -1,3 +1,6 @@
+npm i js-coockie
+npm jwt-decode
+
 Fetch API :
 
 Pour commencer, nous créons un composant qui va utiliser l'API Fetch.
